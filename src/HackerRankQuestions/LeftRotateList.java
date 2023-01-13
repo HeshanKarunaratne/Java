@@ -43,7 +43,7 @@ public class LeftRotateList {
 
 }
 
-class Solution {
+class SolutionLeftRotateList {
     public static void main(String[] args) throws IOException {
 
         int d = 2;
