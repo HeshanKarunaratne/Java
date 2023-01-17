@@ -41,17 +41,35 @@ class Result {
         if (current == null) {
             return null;
         }
-        int count = findNodeCount(current);
-        System.out.println("count is: " + count);
+        int nodeCount = findNodeCount(current);
+        System.out.println("count is: " + nodeCount);
 
-        if(position >= count) {
+        if (position >= nodeCount) {
             System.out.println("no node to be deleted");
             return head;
         }
 
         System.out.println("node can be deleted");
+        return deleteNodeFromPosition(head, position, nodeCount);
+    }
 
-        return null;
+    private static SinglyLinkedListNode deleteNodeFromPosition(SinglyLinkedListNode head, int position, int nodeCount) {
+        SinglyLinkedListNode current = head;
+        SinglyLinkedListNode previous = null;
+        int placeholder = 0;
+        if (placeholder == position) {
+            head = head.next;
+            return head;
+        } else {
+            while (placeholder != position) {
+                previous = current;
+                current = current.next;
+                placeholder++;
+            }
+            previous.next = current.next;
+            current.next = null;
+            return head;
+        }
     }
 
     private static int findNodeCount(SinglyLinkedListNode current) {
@@ -62,12 +80,20 @@ class Result {
         }
         return count;
     }
+
+    public static void printSinglyLinkedList(SinglyLinkedListNode node) {
+        SinglyLinkedListNode temp = node;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
 }
 
 public class DeleteNodeInLinkedList {
     public static void main(String[] args) {
 
-        int position = 3;
+        int position = 0;
         SinglyLinkedList llist = new SinglyLinkedList();
 
         llist.insertNode(10);
@@ -75,7 +101,10 @@ public class DeleteNodeInLinkedList {
         llist.insertNode(30);
         llist.insertNode(40);
 
-        Result.deleteNode(llist.head, position);
+        Result.printSinglyLinkedList(llist.head);
 
+        Result.deleteNode(llist.head, position);
+        System.out.println("*****AFTER_DELETING*****");
+        Result.printSinglyLinkedList(llist.head);
     }
 }
