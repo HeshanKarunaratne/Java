@@ -19,7 +19,9 @@ public class Main {
         shapes.add(square);
 
         int sum = areaCalculator.sum(shapes);
-        System.out.println("sum = " + sum);
+        ShapesPrinter shapesPrinter = new ShapesPrinter();
+        System.out.println(shapesPrinter.json(sum));
+        System.out.println(shapesPrinter.csv(sum));
 
     }
 }
