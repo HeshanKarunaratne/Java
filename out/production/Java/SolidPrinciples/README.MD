@@ -93,3 +93,24 @@ public class Main {
 }
 ~~~
 
+Single Responsibility: We need to create a dedicated class to print out the sum(Do not add print methods inside AreaCalculator.java class)
+
+~~~java
+public class ShapesPrinter {
+    public String json(int sum) {
+        return String.format("{ shapesSum: %s}", sum);
+    }
+
+    public String csv(int sum) {
+        return String.format("shapesSum,%s", sum);
+    }
+}
+~~~
+
+Open Close Principle
+
+~~~java
+public interface Shape {
+    double area();
+}
+~~~

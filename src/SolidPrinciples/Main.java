@@ -1,6 +1,5 @@
 package SolidPrinciples;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Main {
         Circle circle = new Circle(10);
         Square square = new Square(10);
 
-        List<Object> shapes = new ArrayList<>();
+        List<Shape> shapes = new ArrayList<>();
         shapes.add(circle);
         shapes.add(square);
 

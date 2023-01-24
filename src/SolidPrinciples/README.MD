@@ -106,3 +106,66 @@ public class ShapesPrinter {
     }
 }
 ~~~
+
+Open Close Principle
+
+~~~java
+public interface Shape {
+    double area();
+}
+~~~
+
+Square.java
+~~~java
+public class Square implements Shape {
+    private final int length;
+
+    public Square(int length) {
+        this.length = length;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    @Override
+    public double area() {
+        return Math.pow(getLength(), 2);
+    }
+}
+~~~
+
+Circle.java
+~~~java
+public class Circle implements Shape {
+
+    private final int radius;
+
+    public Circle(int radius) {
+        this.radius = radius;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI * Math.pow(getRadius(), 2);
+    }
+}
+~~~
+
+AreaCalculator.java
+~~~java
+public class AreaCalculator {
+    public int sum(List<Shape> shapes) {
+        int sum = 0;
+        for (int i = 0; i < shapes.size(); i++) {
+            sum += shapes.get(i).area();
+        }
+        return sum;
+    }
+}
+~~~
+
