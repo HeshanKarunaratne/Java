@@ -188,3 +188,30 @@ public class NoShape implements NoAreaShape {
     }
 }
 ~~~
+
+Interface Segregation: Interfaces should not force classes to implement what they can't do.
+
+ThreeDimensionalShape.java
+~~~java
+public interface ThreeDimensionalShape {
+    double volume();
+}
+~~~
+
+Cube.java
+~~~java
+public class Cube implements Shape, ThreeDimensionalShape {
+    @Override
+    public double area() {
+        return 100;
+    }
+
+    @Override
+    public double volume() {
+        return 200;
+    }
+}
+~~~
+
+Dependency Inversion Principle
+

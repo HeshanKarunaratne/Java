@@ -212,3 +212,45 @@ public class Cube implements Shape, ThreeDimensionalShape {
     }
 }
 ~~~
+
+Dependency Inversion Principle
+
+IAreaCalculator.java
+~~~java
+public interface IAreaCalculator {
+    int sum(List<Shape> shapes);
+}
+~~~
+
+AreaCalculator.java
+~~~java
+public class AreaCalculator implements IAreaCalculator {
+    @Override
+    public int sum(List<Shape> shapes) {
+        int sum = 0;
+        for (int i = 0; i < shapes.size(); i++) {
+            sum += shapes.get(i).area();
+        }
+        return sum;
+    }
+}
+~~~
+
+ShapesPrinter.java
+~~~java
+public class ShapesPrinter {
+    private final IAreaCalculator iAreaCalculator;
+
+    public ShapesPrinter(IAreaCalculator iAreaCalculator) {
+        this.iAreaCalculator = iAreaCalculator;
+    }
+
+    public String json(List<Shape> shapes) {
+        return String.format("{ shapesSum: %s}", iAreaCalculator.sum(shapes));
+    }
+
+    public String csv(List<Shape> shapes) {
+        return String.format("shapesSum,%s", iAreaCalculator.sum(shapes));
+    }
+}
+~~~
