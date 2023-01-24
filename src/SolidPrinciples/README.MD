@@ -169,3 +169,22 @@ public class AreaCalculator {
 }
 ~~~
 
+Liscov Substitution Principle: Circle,Square should be identified as Shapes where as NoShape is identified as a NoAreaShape which doesn't have an area. Instead of Circle and Square we can use Shape as well.
+
+NoAreaShape.java
+~~~java
+public interface NoAreaShape {
+    double volume();
+}
+~~~
+
+NoShape.java
+~~~java
+public class NoShape implements NoAreaShape {
+
+    @Override
+    public double volume() {
+        return 100.0;
+    }
+}
+~~~
