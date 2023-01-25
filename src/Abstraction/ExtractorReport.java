@@ -15,6 +15,8 @@ public abstract class ExtractorReport {
 
     public abstract String getReportName();
 
+    public abstract String clean(String input);
+
     public void prepareAndSendReport(String path) throws FileNotFoundException {
         System.out.println("started report " + getReportName() + "...\n");
         String report = parse(path);
@@ -38,7 +40,7 @@ public abstract class ExtractorReport {
 
             boolean matches = matcher.matches();
             if (matches) {
-                out += nextLine + "\n";
+                out += clean(nextLine) + "\n";
             }
         }
         return out.isEmpty() ? "Empty File" : out;
