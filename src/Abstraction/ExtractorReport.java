@@ -1,18 +1,14 @@
-Abstract Classes 
--   Cannot be instantiated
--   Abstract methods have no method body and need to be inside abstract class or interface
--   Avoid code duplication and increases reusability
--   Purpose of an abstract class is to function as a base for subclass
--   Encapsulate some common functionality in one place and let sub classes implement differences
+package Abstraction;
 
-Common Example
--   Open file
--   Read file
--   Abstract method(phone and email)
--   Send via email/slack
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-ExtractorReport.java
-~~~java
+/**
+ * @author Heshan Karunaratne
+ */
 public abstract class ExtractorReport {
 
     public abstract Pattern getPattern();
@@ -49,22 +45,3 @@ public abstract class ExtractorReport {
     }
 
 }
-~~~
-
-NumberExtractorReport.java
-~~~java
-public class NumberExtractorReport extends ExtractorReport {
-    private static final Pattern PATTERN = Pattern.compile("^[0-9]*$");
-
-    @Override
-    public Pattern getPattern() {
-        return PATTERN;
-    }
-
-    @Override
-    public String getReportName() {
-        return "PhoneNumbers";
-    }
-
-}
-~~~
