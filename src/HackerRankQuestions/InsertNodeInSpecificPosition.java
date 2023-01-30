@@ -1,6 +1,7 @@
 package HackerRankQuestions;
 
 /**
+ * Only works for specific position except head and tail
  * @author Heshan Karunaratne
  */
 public class InsertNodeInSpecificPosition {
@@ -37,9 +38,27 @@ public class InsertNodeInSpecificPosition {
         }
     }
 
-    public static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode llist, int data, int position) {
-        // Write your code here
-        return null;
+    public static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode head, int data, int position) {
+        if (head == null) return null;
+
+        SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+        SinglyLinkedListNode previous = head;
+        SinglyLinkedListNode current = head;
+        int count = 0;
+
+        while (current != null) {
+            if (count == position) {
+                previous.next = newNode;
+                newNode.next = current;
+                break;
+            } else {
+                count++;
+                previous = current;
+                current = current.next;
+            }
+        }
+
+        return head;
     }
 
     public static void printDoublyLinkedList(SinglyLinkedListNode node) {
@@ -55,13 +74,11 @@ public class InsertNodeInSpecificPosition {
         SinglyLinkedList llist = new SinglyLinkedList();
 
         llist.insertNode(10);
-        llist.insertNode(20);
+        llist.insertNode(22);
         llist.insertNode(30);
 
-        printDoublyLinkedList(llist.head);
-
-        SinglyLinkedListNode newHead = insertNodeAtPosition(llist.head, 40, 2);
-
+        SinglyLinkedListNode newHead = insertNodeAtPosition(llist.head, 40, 1);
+        printDoublyLinkedList(newHead);
     }
 }
 
