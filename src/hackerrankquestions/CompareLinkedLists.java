@@ -1,4 +1,4 @@
-package HackerRankQuestions;
+package hackerrankquestions;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,8 +9,8 @@ import java.io.IOException;
 public class CompareLinkedLists {
 
     static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
+        private int data;
+        private SinglyLinkedListNode next;
 
         public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
@@ -19,8 +19,8 @@ public class CompareLinkedLists {
     }
 
     static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
+        private SinglyLinkedListNode head;
+        private SinglyLinkedListNode tail;
 
         public SinglyLinkedList() {
             this.head = null;
@@ -100,7 +100,7 @@ public class CompareLinkedLists {
         llist2.insertNode(40);
         llist2.insertNode(30);
 
-        System.out.println(compareLists(llist1.head, llist2.head));
+        compareLists(llist1.head, llist2.head);
 
     }
 }

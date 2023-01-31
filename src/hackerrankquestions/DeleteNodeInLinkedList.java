@@ -1,4 +1,6 @@
-package HackerRankQuestions;
+package hackerrankquestions;
+
+import java.util.logging.Logger;
 
 /**
  * @author Heshan Karunaratne
@@ -36,6 +38,8 @@ class SinglyLinkedList {
 }
 
 class Result {
+    private static final Logger LOGGER = Logger.getLogger(Result.class.getName());
+
     public static SinglyLinkedListNode deleteNode(SinglyLinkedListNode head, int position) {
         SinglyLinkedListNode current = head;
         if (current == null) {

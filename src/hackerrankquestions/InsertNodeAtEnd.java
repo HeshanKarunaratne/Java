@@ -1,4 +1,4 @@
-package HackerRankQuestions;
+package hackerrankquestions;
 
 /**
  * @author Heshan Karunaratne

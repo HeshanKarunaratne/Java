@@ -1,9 +1,12 @@
-package HackerRankQuestions;
+package hackerrankquestions;
+
+import java.io.IOException;
+import java.util.Stack;
 
 /**
  * @author Heshan Karunaratne
  */
-public class RemoveDuplicatesFromLinkedList {
+public class NodeValueFromTail {
 
     static class SinglyLinkedListNode {
         public int data;
@@ -37,7 +40,29 @@ public class RemoveDuplicatesFromLinkedList {
         }
     }
 
-    public static void printDoublyLinkedList(SinglyLinkedListNode node) {
+    public static int getNode(SinglyLinkedListNode llist, int positionFromTail) {
+        Stack<Integer> stack = new Stack<>();
+        SinglyLinkedListNode current = llist;
+        while (current != null) {
+            stack.push(current.data);
+            current = current.next;
+        }
+
+        int pointer = 0;
+        int lastVal = 0;
+        while (!stack.isEmpty()) {
+            lastVal = stack.peek();
+            if (pointer == positionFromTail) {
+                return lastVal;
+            }
+            pointer++;
+            stack.pop();
+        }
+        return lastVal;
+
+    }
+
+    public static void printSinglyLinkedList(SinglyLinkedListNode node) {
         SinglyLinkedListNode temp = node;
         while (temp != null) {
             System.out.println(temp.data);
@@ -45,34 +70,17 @@ public class RemoveDuplicatesFromLinkedList {
         }
     }
 
-    public static SinglyLinkedListNode removeDuplicates(SinglyLinkedListNode head) {
-        SinglyLinkedListNode temp = head;
-
-        while (temp.next != null) {
-            if (temp.next.data == temp.data) {
-                temp.next = temp.next.next;
-            } else {
-                temp = temp.next;
-            }
-        }
-        return head;
-    }
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         SinglyLinkedList llist = new SinglyLinkedList();
 
         llist.insertNode(10);
-        llist.insertNode(10);
         llist.insertNode(20);
-        llist.insertNode(20);
-        llist.insertNode(30);
         llist.insertNode(30);
 
-        printDoublyLinkedList(llist.head);
-        SinglyLinkedListNode newHead = removeDuplicates(llist.head);
-        System.out.println("*****************");
-        printDoublyLinkedList(newHead);
+        printSinglyLinkedList(llist.head);
+
+        System.out.println(getNode(llist.head, 4));
 
     }
 }

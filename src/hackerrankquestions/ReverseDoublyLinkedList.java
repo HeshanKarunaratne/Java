@@ -1,4 +1,4 @@
-package HackerRankQuestions;
+package hackerrankquestions;
 
 import java.util.Stack;
 
