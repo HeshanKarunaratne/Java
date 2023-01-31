@@ -65,6 +65,5 @@ public class NumberExtractorReport extends ExtractorReport {
     public String getReportName() {
         return "PhoneNumbers";
     }
-
 }
 ~~~
