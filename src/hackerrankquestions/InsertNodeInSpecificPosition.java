@@ -1,14 +1,17 @@
 package hackerrankquestions;
 
+import java.util.logging.Logger;
+
 /**
  * Only works for specific position except head and tail
  * @author Heshan Karunaratne
  */
 public class InsertNodeInSpecificPosition {
+    private static final Logger LOGGER = Logger.getLogger(InsertNodeInSpecificPosition.class.getName());
 
     static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
+        private int data;
+        private SinglyLinkedListNode next;
 
         public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
@@ -17,8 +20,8 @@ public class InsertNodeInSpecificPosition {
     }
 
     static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
+        private SinglyLinkedListNode head;
+        private SinglyLinkedListNode tail;
 
         public SinglyLinkedList() {
             this.head = null;
@@ -64,7 +67,8 @@ public class InsertNodeInSpecificPosition {
     public static void printDoublyLinkedList(SinglyLinkedListNode node) {
         SinglyLinkedListNode temp = node;
         while (temp != null) {
-            System.out.println(temp.data);
+            String data = String.valueOf(temp.data);
+            LOGGER.info(data);
             temp = temp.next;
         }
     }

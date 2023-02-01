@@ -1,13 +1,16 @@
 package hackerrankquestions;
 
+import java.util.logging.Logger;
+
 /**
  * @author Heshan Karunaratne
  */
 public class MergeTwoSortedLinkedList {
+    private static final Logger LOGGER = Logger.getLogger(MergeTwoSortedLinkedList.class.getName());
 
     static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
+        private int data;
+        private SinglyLinkedListNode next;
 
         public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
@@ -16,8 +19,8 @@ public class MergeTwoSortedLinkedList {
     }
 
     static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
+        private SinglyLinkedListNode head;
+        private SinglyLinkedListNode tail;
 
         public SinglyLinkedList() {
             this.head = null;
@@ -38,37 +41,42 @@ public class MergeTwoSortedLinkedList {
     }
 
     static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
-        if (head1 == null && head2 == null) return null;
 
-        if (head1 == null && head2 != null) return head2;
-
-        if (head1 != null && head2 == null) return head1;
-
-        SinglyLinkedListNode head = null, tail = null;
-        if (head1.data <= head2.data) {
-            head = tail = head1;
-            head1 = head1.next;
-        } else {
-            head = tail = head2;
-            head2 = head2.next;
+        if (head1 == null) {
+            return head2;
         }
-
-        while (head1 != null && head2 != null) {
-            if (head1.data <= head2.data) {
-                tail.next = head1;
-                tail = head1;
-                head1 = head1.next;
+        if (head2 == null) {
+            return head1;
+        }
+        SinglyLinkedListNode t1 = head1;
+        SinglyLinkedListNode t2 = head2;
+        SinglyLinkedListNode head = null;
+        SinglyLinkedListNode tail = null;
+        if (t1.data <= t2.data) {
+            head = t1;
+            tail = t1;
+            t1 = t1.next;
+        } else {
+            head = t2;
+            tail = t2;
+            t2 = t2.next;
+        }
+        while (t1 != null && t2 != null) {
+            if (t1.data <= t2.data) {
+                tail.next = t1;
+                tail = t1;
+                t1 = t1.next;
             } else {
-                tail.next = head2;
-                tail = head2;
-                head2 = head2.next;
+                tail.next = t2;
+                tail = t2;
+                t2 = t2.next;
             }
-        }
 
-        if (head1 != null) {
-            tail.next = head1;
+        }
+        if (t1 != null) {
+            tail.next = t1;
         } else {
-            tail.next = head2;
+            tail.next = t2;
         }
         return head;
     }
@@ -76,7 +84,8 @@ public class MergeTwoSortedLinkedList {
     public static void printSinglyLinkedList(SinglyLinkedListNode node) {
         SinglyLinkedListNode temp = node;
         while (temp != null) {
-            System.out.println(temp.data);
+            String data = String.valueOf(temp.data);
+            LOGGER.info(data);
             temp = temp.next;
         }
     }

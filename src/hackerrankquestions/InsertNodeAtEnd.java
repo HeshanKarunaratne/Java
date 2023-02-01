@@ -1,13 +1,16 @@
 package hackerrankquestions;
 
+import java.util.logging.Logger;
+
 /**
  * @author Heshan Karunaratne
  */
 public class InsertNodeAtEnd {
+    private static final Logger LOGGER = Logger.getLogger(InsertNodeAtEnd.class.getName());
 
     static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
+        private int data;
+        private SinglyLinkedListNode next;
 
         public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
@@ -16,7 +19,7 @@ public class InsertNodeAtEnd {
     }
 
     static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
+        private SinglyLinkedListNode head;
 
         public SinglyLinkedList() {
             this.head = null;
@@ -26,7 +29,8 @@ public class InsertNodeAtEnd {
     public static void printSinglyLinkedList(SinglyLinkedListNode node) {
         SinglyLinkedListNode temp = node;
         while (temp != null) {
-            System.out.println(temp.data);
+            String data = String.valueOf(temp.data);
+            LOGGER.info(data);
             temp = temp.next;
         }
     }
