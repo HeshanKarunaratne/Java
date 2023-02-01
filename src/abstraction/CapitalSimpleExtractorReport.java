@@ -1,12 +1,12 @@
-package Abstraction;
+package abstraction;
 
 import java.util.regex.Pattern;
 
 /**
  * @author Heshan Karunaratne
  */
-public class NumberExtractorReport extends ExtractorReport {
-    private static final Pattern PATTERN = Pattern.compile("^[0-9]*$");
+public class CapitalSimpleExtractorReport extends ExtractorReport {
+    private static final Pattern PATTERN = Pattern.compile("^[A-Za-z]+$");
 
     @Override
     public Pattern getPattern() {
@@ -15,12 +15,12 @@ public class NumberExtractorReport extends ExtractorReport {
 
     @Override
     public String getReportName() {
-        return "PhoneNumbers";
+        return "CapitalAndSimple";
     }
 
     @Override
     public String clean(String input) {
-        return input;
+        return input.toLowerCase();
     }
 
 }

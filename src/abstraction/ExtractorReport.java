@@ -1,8 +1,9 @@
-package Abstraction;
+package abstraction;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,6 +11,7 @@ import java.util.regex.Pattern;
  * @author Heshan Karunaratne
  */
 public abstract class ExtractorReport {
+    private static final Logger LOGGER = Logger.getLogger(ExtractorReport.class.getName());
 
     public abstract Pattern getPattern();
 
@@ -18,15 +20,15 @@ public abstract class ExtractorReport {
     public abstract String clean(String input);
 
     public void prepareAndSendReport(String path) throws FileNotFoundException {
-        System.out.println("started report " + getReportName() + "...\n");
+        LOGGER.info("started report " + getReportName() + "...\n");
         String report = parse(path);
-        System.out.println(report);
-        System.out.println("sent report " + getReportName() + "...\n");
+        LOGGER.info(report);
+        LOGGER.info("sent report " + getReportName() + "...\n");
     }
 
     private String parse(String path) throws FileNotFoundException {
 
-        String out = "";
+        StringBuilder out = new StringBuilder("");
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         if (scanner.hasNext()) {
@@ -40,10 +42,12 @@ public abstract class ExtractorReport {
 
             boolean matches = matcher.matches();
             if (matches) {
-                out += clean(nextLine) + "\n";
+                out.append(clean(nextLine)).append("\n");
             }
         }
-        return out.isEmpty() ? "Empty File" : out;
+        scanner.close();
+        return out.toString().isEmpty() ? "Empty File" : out.toString();
+
     }
 
 }
