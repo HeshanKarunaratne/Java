@@ -5,40 +5,41 @@ import java.util.logging.Logger;
 /**
  * @author Heshan Karunaratne
  */
-class SinglyLinkedListNode {
-    public int data;
-    public SinglyLinkedListNode next;
+public class DeleteNodeInLinkedList {
 
-    public SinglyLinkedListNode(int nodeData) {
-        this.data = nodeData;
-        this.next = null;
-    }
-}
+    private static final Logger LOGGER = Logger.getLogger(DeleteNodeInLinkedList.class.getName());
 
-class SinglyLinkedList {
-    public SinglyLinkedListNode head;
-    public SinglyLinkedListNode tail;
+    static class SinglyLinkedListNode {
+        private int data;
+        private SinglyLinkedListNode next;
 
-    public SinglyLinkedList() {
-        this.head = null;
-        this.tail = null;
+        public SinglyLinkedListNode(int nodeData) {
+            this.data = nodeData;
+            this.next = null;
+        }
     }
 
-    public void insertNode(int nodeData) {
-        SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+    static class SinglyLinkedList {
+        private SinglyLinkedListNode head;
+        private SinglyLinkedListNode tail;
 
-        if (this.head == null) {
-            this.head = node;
-        } else {
-            this.tail.next = node;
+        public SinglyLinkedList() {
+            this.head = null;
+            this.tail = null;
         }
 
-        this.tail = node;
-    }
-}
+        public void insertNode(int nodeData) {
+            SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
 
-class Result {
-    private static final Logger LOGGER = Logger.getLogger(Result.class.getName());
+            if (this.head == null) {
+                this.head = node;
+            } else {
+                this.tail.next = node;
+            }
+
+            this.tail = node;
+        }
+    }
 
     public static SinglyLinkedListNode deleteNode(SinglyLinkedListNode head, int position) {
         SinglyLinkedListNode current = head;
@@ -46,18 +47,17 @@ class Result {
             return null;
         }
         int nodeCount = findNodeCount(current);
-        System.out.println("count is: " + nodeCount);
 
         if (position >= nodeCount) {
-            System.out.println("no node to be deleted");
+            LOGGER.info("no node to be deleted");
             return head;
         }
 
-        System.out.println("node can be deleted");
-        return deleteNodeFromPosition(head, position, nodeCount);
+        LOGGER.info("node can be deleted");
+        return deleteNodeFromPosition(head, position);
     }
 
-    private static SinglyLinkedListNode deleteNodeFromPosition(SinglyLinkedListNode head, int position, int nodeCount) {
+    private static SinglyLinkedListNode deleteNodeFromPosition(SinglyLinkedListNode head, int position) {
         SinglyLinkedListNode current = head;
         SinglyLinkedListNode previous = null;
         int placeholder = 0;
@@ -88,13 +88,12 @@ class Result {
     public static void printSinglyLinkedList(SinglyLinkedListNode node) {
         SinglyLinkedListNode temp = node;
         while (temp != null) {
-            System.out.println(temp.data);
+            String data = String.valueOf(temp.data);
+            LOGGER.info(data);
             temp = temp.next;
         }
     }
-}
 
-public class DeleteNodeInLinkedList {
     public static void main(String[] args) {
 
         int position = 0;
@@ -105,10 +104,10 @@ public class DeleteNodeInLinkedList {
         llist.insertNode(30);
         llist.insertNode(40);
 
-        Result.printSinglyLinkedList(llist.head);
+        printSinglyLinkedList(llist.head);
 
-        Result.deleteNode(llist.head, position);
-        System.out.println("*****AFTER_DELETING*****");
-        Result.printSinglyLinkedList(llist.head);
+        deleteNode(llist.head, position);
+        LOGGER.info("*****AFTER_DELETING*****");
+        printSinglyLinkedList(llist.head);
     }
 }
