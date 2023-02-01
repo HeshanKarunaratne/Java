@@ -1,16 +1,17 @@
 package hackerrankquestions;
 
-import java.io.IOException;
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.logging.Logger;
 
 /**
  * @author Heshan Karunaratne
  */
 public class NodeValueFromTail {
+    private static final Logger LOGGER = Logger.getLogger(NodeValueFromTail.class.getName());
 
     static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
+        private int data;
+        private SinglyLinkedListNode next;
 
         public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
@@ -19,8 +20,8 @@ public class NodeValueFromTail {
     }
 
     static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
+        private SinglyLinkedListNode head;
+        private SinglyLinkedListNode tail;
 
         public SinglyLinkedList() {
             this.head = null;
@@ -41,7 +42,7 @@ public class NodeValueFromTail {
     }
 
     public static int getNode(SinglyLinkedListNode llist, int positionFromTail) {
-        Stack<Integer> stack = new Stack<>();
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
         SinglyLinkedListNode current = llist;
         while (current != null) {
             stack.push(current.data);
@@ -65,12 +66,13 @@ public class NodeValueFromTail {
     public static void printSinglyLinkedList(SinglyLinkedListNode node) {
         SinglyLinkedListNode temp = node;
         while (temp != null) {
-            System.out.println(temp.data);
+            String data = String.valueOf(temp.data);
+            LOGGER.info(data);
             temp = temp.next;
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         SinglyLinkedList llist = new SinglyLinkedList();
 
@@ -79,8 +81,7 @@ public class NodeValueFromTail {
         llist.insertNode(30);
 
         printSinglyLinkedList(llist.head);
-
-        System.out.println(getNode(llist.head, 4));
+        getNode(llist.head, 4);
 
     }
 }

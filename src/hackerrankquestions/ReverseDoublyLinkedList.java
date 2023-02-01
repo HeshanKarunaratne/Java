@@ -1,16 +1,19 @@
 package hackerrankquestions;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.logging.Logger;
 
 /**
  * @author Heshan Karunaratne
  */
 public class ReverseDoublyLinkedList {
 
+    private static final Logger LOGGER = Logger.getLogger(ReverseDoublyLinkedList.class.getName());
+
     static class DoublyLinkedListNode {
-        public int data;
-        public DoublyLinkedListNode next;
-        public DoublyLinkedListNode prev;
+        private int data;
+        private DoublyLinkedListNode next;
+        private DoublyLinkedListNode prev;
 
         public DoublyLinkedListNode(int nodeData) {
             this.data = nodeData;
@@ -20,8 +23,8 @@ public class ReverseDoublyLinkedList {
     }
 
     static class DoublyLinkedList {
-        public DoublyLinkedListNode head;
-        public DoublyLinkedListNode tail;
+        private DoublyLinkedListNode head;
+        private DoublyLinkedListNode tail;
 
         public DoublyLinkedList() {
             this.head = null;
@@ -45,7 +48,8 @@ public class ReverseDoublyLinkedList {
     public static void printDoublyLinkedList(DoublyLinkedListNode node) {
         DoublyLinkedListNode temp = node;
         while (temp != null) {
-            System.out.println(temp.data);
+            String data = String.valueOf(temp.data);
+            LOGGER.info(data);
             temp = temp.next;
         }
     }
@@ -56,7 +60,7 @@ public class ReverseDoublyLinkedList {
         if (current == null)
             return null;
 
-        Stack<Integer> stack = new Stack<>();
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
 
         while (current != null) {
             stack.push(current.data);

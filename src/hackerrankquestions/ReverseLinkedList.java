@@ -1,15 +1,18 @@
 package hackerrankquestions;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.logging.Logger;
 
 /**
  * @author Heshan Karunaratne
  */
 public class ReverseLinkedList {
 
+    private static final Logger LOGGER = Logger.getLogger(ReverseLinkedList.class.getName());
+
     static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
+        private int data;
+        private SinglyLinkedListNode next;
 
         public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
@@ -18,8 +21,8 @@ public class ReverseLinkedList {
     }
 
     static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
+        private SinglyLinkedListNode head;
+        private SinglyLinkedListNode tail;
 
         public SinglyLinkedList() {
             this.head = null;
@@ -42,7 +45,8 @@ public class ReverseLinkedList {
     public static void printSinglyLinkedList(SinglyLinkedListNode node) {
         SinglyLinkedListNode temp = node;
         while (temp != null) {
-            System.out.println(temp.data);
+            String data = String.valueOf(temp.data);
+            LOGGER.info(data);
             temp = temp.next;
         }
     }
@@ -50,7 +54,7 @@ public class ReverseLinkedList {
 
     public static SinglyLinkedListNode reverse(SinglyLinkedListNode llist) {
         SinglyLinkedListNode temp = llist;
-        Stack<Integer> stack = new Stack<>();
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
 
         while (temp != null) {
             stack.push(temp.data);
@@ -71,12 +75,9 @@ public class ReverseLinkedList {
         llist.insertNode(20);
         llist.insertNode(30);
 
-        System.out.println("******BEFORE*******");
         printSinglyLinkedList(llist.head);
-        System.out.println("******BEFORE*******");
         SinglyLinkedListNode newHead = reverse(llist.head);
-        System.out.println("******AFTER*******");
         printSinglyLinkedList(newHead);
-        System.out.println("******AFTER*******");
+
     }
 }

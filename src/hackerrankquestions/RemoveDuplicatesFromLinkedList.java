@@ -1,13 +1,16 @@
 package hackerrankquestions;
 
+import java.util.logging.Logger;
+
 /**
  * @author Heshan Karunaratne
  */
 public class RemoveDuplicatesFromLinkedList {
+    private static final Logger LOGGER = Logger.getLogger(RemoveDuplicatesFromLinkedList.class.getName());
 
     static class SinglyLinkedListNode {
-        public int data;
-        public SinglyLinkedListNode next;
+        private int data;
+        private SinglyLinkedListNode next;
 
         public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
@@ -16,8 +19,8 @@ public class RemoveDuplicatesFromLinkedList {
     }
 
     static class SinglyLinkedList {
-        public SinglyLinkedListNode head;
-        public SinglyLinkedListNode tail;
+        private SinglyLinkedListNode head;
+        private SinglyLinkedListNode tail;
 
         public SinglyLinkedList() {
             this.head = null;
@@ -40,7 +43,8 @@ public class RemoveDuplicatesFromLinkedList {
     public static void printDoublyLinkedList(SinglyLinkedListNode node) {
         SinglyLinkedListNode temp = node;
         while (temp != null) {
-            System.out.println(temp.data);
+            String data = String.valueOf(temp.data);
+            LOGGER.info(data);
             temp = temp.next;
         }
     }
@@ -71,7 +75,6 @@ public class RemoveDuplicatesFromLinkedList {
 
         printDoublyLinkedList(llist.head);
         SinglyLinkedListNode newHead = removeDuplicates(llist.head);
-        System.out.println("*****************");
         printDoublyLinkedList(newHead);
 
     }

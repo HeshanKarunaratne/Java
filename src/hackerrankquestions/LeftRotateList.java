@@ -1,13 +1,14 @@
 package hackerrankquestions;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * @author Heshan Karunaratne
  */
 public class LeftRotateList {
+    private static final Logger LOGGER = Logger.getLogger(LeftRotateList.class.getName());
 
     public static int[] rotateLeft(int d, int[] arr) {
         int[] temp = new int[arr.length];
@@ -41,10 +42,7 @@ public class LeftRotateList {
         return temp;
     }
 
-}
-
-class SolutionLeftRotateList {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         int d = 2;
         int[] arr = {10, 20, 30, 40, 50};
@@ -57,7 +55,8 @@ class SolutionLeftRotateList {
         List<Integer> result = LeftRotateList.rotateLeftList(d, intArr);
 
         for (int i : result) {
-            System.out.println(i);
+            String data = String.valueOf(i);
+            LOGGER.info(data);
         }
 
     }
