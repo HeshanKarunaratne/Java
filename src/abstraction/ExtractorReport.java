@@ -32,7 +32,7 @@ public abstract class ExtractorReport {
         File file = new File(path);
 
         try (Scanner scanner = new Scanner(file);) {
-            
+
             if (scanner.hasNext()) {
                 scanner.nextLine();
             } else {
