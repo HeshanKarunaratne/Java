@@ -1,4 +1,4 @@
-package Theory;
+package theory;
 
 import java.util.BitSet;
 
