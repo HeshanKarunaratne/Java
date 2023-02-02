@@ -30,23 +30,25 @@ public abstract class ExtractorReport {
 
         StringBuilder out = new StringBuilder("");
         File file = new File(path);
-        Scanner scanner = new Scanner(file);
-        if (scanner.hasNext()) {
-            scanner.nextLine();
-        } else {
-            return "Empty file";
-        }
-        while (scanner.hasNext()) {
-            String nextLine = scanner.nextLine();
-            Matcher matcher = getPattern().matcher(nextLine);
 
-            boolean matches = matcher.matches();
-            if (matches) {
-                out.append(clean(nextLine)).append("\n");
+        try (Scanner scanner = new Scanner(file);) {
+            
+            if (scanner.hasNext()) {
+                scanner.nextLine();
+            } else {
+                return "Empty file";
             }
+            while (scanner.hasNext()) {
+                String nextLine = scanner.nextLine();
+                Matcher matcher = getPattern().matcher(nextLine);
+
+                boolean matches = matcher.matches();
+                if (matches) {
+                    out.append(clean(nextLine)).append("\n");
+                }
+            }
+            return out.toString().isEmpty() ? "Empty File" : out.toString();
         }
-        scanner.close();
-        return out.toString().isEmpty() ? "Empty File" : out.toString();
 
     }
 
