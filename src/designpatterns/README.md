@@ -2,7 +2,7 @@ Creation Design Patterns
 - Singleton Pattern
 - Factory Pattern
 - Builder Pattern
-
+- Prototype Pattern
 
 Singleton Design Pattern
 - Only one instance of the class should exist
@@ -292,6 +292,69 @@ class BuilderPatternTest {
         System.out.println(bike.getWheel());
         System.out.println(bike.getAirbags());
         System.out.println(bike.isHasHelmet());
+    }
+}
+~~~
+
+Prototype Pattern
+- Used when you want to avoid multiple Object creation of same instance, instead you copy the object to new object and then we can modify as per our need
+
+~~~java
+package designpatterns.prototype;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author Heshan Karunaratne
+ */
+class Vehicle implements Cloneable {
+    private List<String> vehicleList;
+
+    public Vehicle() {
+        this.vehicleList = new ArrayList<>();
+    }
+
+    public Vehicle(List<String> list) {
+        this.vehicleList = list;
+    }
+
+    public void insertData() {
+        vehicleList.add("Honda amaze");
+        vehicleList.add("Audi A4");
+        vehicleList.add("Hyundai Creta");
+        vehicleList.add("Maruti Baleno");
+        vehicleList.add("Renault Duster");
+    }
+
+    public List<String> getVehicleList() {
+        return this.vehicleList;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        List<String> tempList = new ArrayList<>();
+        for (String s : this.getVehicleList()) {
+            tempList.add(s);
+        }
+        return new Vehicle(tempList);
+    }
+}
+
+class PrototypeTest {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Vehicle a = new Vehicle();
+        a.insertData();
+
+        Vehicle b = (Vehicle) a.clone();
+        List<String> list = b.getVehicleList();
+        list.add("Honda new Amaze");
+
+        System.out.println(a.getVehicleList());
+        System.out.println(list);
+
+        b.getVehicleList().remove("Audi A4");
+        System.out.println(list);
     }
 }
 ~~~
