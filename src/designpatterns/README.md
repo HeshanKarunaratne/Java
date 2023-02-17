@@ -13,6 +13,9 @@ Structural Design Patterns
 - Adapter Pattern
 - Bridge Pattern
 
+Behavioral Design Patter
+- Observer Pattern
+
 Singleton Design Pattern
 - Only one instance of the class should exist
 - Constructor should be private
