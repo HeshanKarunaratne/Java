@@ -6,7 +6,7 @@ package designpatterns.bridge;
 abstract class TV {
     Remote remote;
 
-    public TV(Remote remote) {
+    protected TV(Remote remote) {
         this.remote = remote;
     }
 

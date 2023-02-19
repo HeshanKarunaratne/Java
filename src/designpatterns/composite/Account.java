@@ -6,11 +6,11 @@ import java.util.List;
 /**
  * @author Heshan Karunaratne
  */
-abstract class Account {
+interface Account {
     public abstract float getBalance();
 }
 
-class DepositAccount extends Account {
+class DepositAccount implements Account {
 
     private String accountNo;
     private float accountBalance;
@@ -27,7 +27,7 @@ class DepositAccount extends Account {
     }
 }
 
-class SavingsAccount extends Account {
+class SavingsAccount implements Account {
 
     private String accountNo;
     private float accountBalance;
@@ -44,9 +44,9 @@ class SavingsAccount extends Account {
     }
 }
 
-class CompositeAccount extends Account {
+class CompositeAccount implements Account {
     private float totalBalance;
-    private List<Account> accountList = new ArrayList<Account>();
+    private List<Account> accountList = new ArrayList<>();
 
     public float getBalance() {
         totalBalance = 0;
