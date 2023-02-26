@@ -40,3 +40,9 @@ public class TryWithResources {
     }
 }
 ~~~
+
+# N-Tier Architecture
+
+![Diagram](resources/images/N-Tier-Architecture1.PNG "Diagram")
+
+Above is a 3-Layer diagram

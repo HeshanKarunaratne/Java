@@ -98,8 +98,6 @@ a
 1src/abstraction/CapitalSimpleExtractorReport.java,6\8\68d5bdff5b65640f2159a197700c63ed1031a3c8
 Z
 *src/abstraction/NumberExtractorReport.java,4\d\4d40d71340af3f1f09863cce783494c1c32d8e3a
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 P
  src/theory/TryWithResources.java,9\1\913e46557ac537fc8299e1fafbbd72ba8160a47e
 J
@@ -128,3 +126,13 @@ Z
 *src/designpatterns/flyweight/Employee.java,f\f\ff1a69f4e80c68bf74926390fa71dca15b342606
 X
 (src/designpatterns/observer/Subject.java,2\b\2b0c5531fb914aa6f8ba1fa4f184bda0b4b8c115
+L
+src/designpatterns/README.md,9\4\9487960c0e2ee4edbcb34f4b74df8c590829e303
+Y
+)src/designpatterns/composite/Account.java,d\2\d28b2417a55e2b3bff8d8ec7d09469ffb82949e9
+W
+'src/designpatterns/builder/Vehicle.java,9\6\96c289b32bf68f1f901cfb275f280470ba039345
+Q
+!src/designpatterns/bridge/TV.java,8\f\8fca58ec553999eb117250d7747521482ac7d249
+Y
+)src/designpatterns/adapter/WebDriver.java,2\7\270f4dbe4452d03d85cbbe8d3b4bdb54071d963e
