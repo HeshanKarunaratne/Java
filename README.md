@@ -72,3 +72,52 @@ public class LoopingIterator {
     }
 }
 ~~~
+
+- MavenInvoker.java
+
+~~~java
+import com.mitrai.tallelf.constants.AppConstants;
+import org.apache.log4j.Logger;
+import org.apache.maven.shared.invoker.*;
+
+import java.io.File;
+import java.util.Collections;
+
+/**
+ * @author Heshan Karunaratne
+ */
+public class MavenInvoker {
+
+    private final String directory;
+    private final String goals;
+    private static final Logger LOGGER = Logger.getLogger(MavenInvoker.class);
+
+    public MavenInvoker(String directory, String goals) {
+        this.directory = directory;
+        this.goals = goals;
+    }
+
+    public void invokeMavenCommands() {
+
+        InvocationRequest request = new DefaultInvocationRequest();
+        request.setPomFile(new File(directory, AppConstants.POM_XML_FILE));
+        request.setGoals(Collections.singletonList(goals));
+
+        DefaultInvoker invoker = new DefaultInvoker();
+        invoker.setMavenHome(new File(AppConstants.MAVEN_DIR));
+
+        try {
+
+            InvocationResult result = invoker.execute(request);
+            if (result.getExitCode() == 0)
+                LOGGER.info("MAVEN_COMMAND_EXECUTION_SUCCESS: " + goals);
+
+            else
+                LOGGER.info("MAVEN_COMMAND_EXECUTION_FAILED_WITH_EXIT_CODE: " + result.getExitCode());
+
+        } catch (MavenInvocationException e) {
+            LOGGER.error("ERROR_EXECUTING_MAVEN_COMMAND: " + e.getMessage());
+        }
+    }
+}
+~~~
