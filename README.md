@@ -121,3 +121,59 @@ public class MavenInvoker {
     }
 }
 ~~~
+
+- Executing a .bat file using Java
+- Here pass location of the .bat file to fileLocation parameter
+
+~~~java
+package com.mitrai.tallelf.components.builder;
+
+import org.apache.log4j.Logger;
+
+import java.io.*;
+
+/**
+ * @author Heshan Karunaratne
+ */
+public class TerminalCommandExecutor {
+
+    private final String fileLocation;
+
+    private static final Logger LOGGER = Logger.getLogger(TerminalCommandExecutor.class);
+
+    public TerminalCommandExecutor(String fileLocation) {
+        this.fileLocation = fileLocation;
+    }
+
+    public void executeCommand() {
+
+        try {
+            ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", fileLocation);
+
+            Process process = processBuilder.start();
+            printToConsole(process);
+            process.waitFor();
+
+        } catch (IOException e) {
+            LOGGER.error("ERROR_EXECUTING: " + e.getMessage());
+        } catch (InterruptedException e) {
+            LOGGER.error("ERROR_EXECUTING: " + e.getMessage());
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    private void printToConsole(Process process) throws IOException {
+        printInfoAndErrorLogs(process.getInputStream());
+        printInfoAndErrorLogs(process.getErrorStream());
+    }
+
+    private void printInfoAndErrorLogs(InputStream inputStream) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            LOGGER.info(line);
+        }
+    }
+
+}
+~~~
