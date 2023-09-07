@@ -177,3 +177,76 @@ public class TerminalCommandExecutor {
 
 }
 ~~~
+
+- Inner Classes
+
+Member inner class
+~~~java
+package theory;
+public class MyInnerClassDemo {
+    public static void main(String[] args) {
+
+        A a = new A();
+        A.B b = a.new B();
+        b.show();
+    }
+}
+class A {
+    int rollNo;
+    String sName;
+
+    class B {
+        public void show() {
+            System.out.println("SHOW");
+        }
+    }
+}
+~~~
+
+- Nested inner class
+~~~java
+package theory;
+
+public class MyInnerClassDemo {
+    public static void main(String[] args) {
+
+        A.B b = new A.B();
+        b.show();
+    }
+}
+
+class A {
+    int rollNo;
+    String sName;
+
+    static class B {
+
+        public void show() {
+            System.out.println("SHOW");
+        }
+    }
+}
+~~~
+
+- Anonymous inner class
+~~~java
+package theory;
+
+public class MyInnerClassDemo {
+    public static void main(String[] args) {
+
+        B b = new B(){
+            @Override
+            public void show() {
+                System.out.println("OVERRIDED");
+            }
+        };
+        b.show();
+    }
+}
+class B {
+    public void show() {
+        System.out.println("SHOW");
+    }
+}
+~~~
