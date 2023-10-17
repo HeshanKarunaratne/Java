@@ -160,8 +160,6 @@ $src/theory/patterns/HillPattern.java,6\6\665628f97b85b3fca76dd02863a94462a8503
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 Y
 )src/hackerrankquestions/DynamicArray.java,1\e\1e56715fb28ea7a1330d89240b06dd3a3d0ea920
-J
-src/theory/MyRunnable.java,a\f\af6d9449c55dacaa78c7ea72c9e5054f8a3814fe
 M
 src/theory/TransientDemo.java,c\0\c08d21b1b38f2423273ba7534fc80761ac903231
 P
@@ -180,3 +178,5 @@ L
 src/theory/MissionLeads.java,b\a\ba82e82bf715a6abcb67e932ff94d29fa34b982c
 ]
 -src/hackerrankquestions/SimpleTextEditor.java,8\5\85e7b3c5b6758b7c6edba1e6db2f8e46425d0dca
+8
+Java.iml,4\b\4b030f50e362de75a10637fd31c94a08dfb492a7
