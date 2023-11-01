@@ -7,7 +7,6 @@ import java.util.logging.Logger;
  * @author Heshan Karunaratne
  */
 public class ReverseLinkedList {
-
     private static final Logger LOGGER = Logger.getLogger(ReverseLinkedList.class.getName());
 
     static class SinglyLinkedListNode {
@@ -69,6 +68,28 @@ public class ReverseLinkedList {
         return llist2.head;
     }
 
+    public static SinglyLinkedListNode reverseWithoutExtraSpace(SinglyLinkedListNode head) {
+        if (head == null) {
+            return null;
+        }
+        if (head.next == null) {
+            return head;
+        }
+        SinglyLinkedListNode preNode = null;
+        SinglyLinkedListNode current = head;
+
+        while (current != null) {
+            SinglyLinkedListNode nextNode = current.next;
+            current.next = preNode;
+            preNode = current;
+            current = nextNode;
+        }
+
+        head = preNode;
+        return head;
+
+    }
+
     public static void main(String[] args) {
         SinglyLinkedList llist = new SinglyLinkedList();
         llist.insertNode(10);
@@ -76,7 +97,8 @@ public class ReverseLinkedList {
         llist.insertNode(30);
 
         printSinglyLinkedList(llist.head);
-        SinglyLinkedListNode newHead = reverse(llist.head);
+//        SinglyLinkedListNode newHead = reverse(llist.head);
+        SinglyLinkedListNode newHead = reverseWithoutExtraSpace(llist.head);
         printSinglyLinkedList(newHead);
 
     }

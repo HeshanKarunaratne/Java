@@ -62,6 +62,30 @@ public class RemoveDuplicatesFromLinkedList {
         return head;
     }
 
+    public static SinglyLinkedListNode removeDuplicates2(SinglyLinkedListNode head) {
+
+        if (head == null) {
+            return null;
+        }
+
+        if (head.next == null) {
+            return head;
+        }
+
+        SinglyLinkedListNode current = head;
+        while (current.next != null) {
+
+            if (current.data != current.next.data) {
+                current = current.next;
+            } else {
+                current.next = current.next.next;
+            }
+
+        }
+
+        return head;
+    }
+
     public static void main(String[] args) {
 
         SinglyLinkedList llist = new SinglyLinkedList();
@@ -74,7 +98,7 @@ public class RemoveDuplicatesFromLinkedList {
         llist.insertNode(30);
 
         printDoublyLinkedList(llist.head);
-        SinglyLinkedListNode newHead = removeDuplicates(llist.head);
+        SinglyLinkedListNode newHead = removeDuplicates2(llist.head);
         printDoublyLinkedList(newHead);
 
     }
