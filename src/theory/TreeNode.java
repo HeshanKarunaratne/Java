@@ -46,6 +46,10 @@ class Test {
         System.out.println("");
         System.out.println("LevelOrder");
         levelOrderTraversal(root);
+
+        System.out.println("");
+        System.out.println("Height");
+        System.out.println(height(root));
     }
 
     public static void inOrderTraversal(TreeNode node) {
@@ -100,8 +104,31 @@ class Test {
                 queue.add(poll.right);
             }
         }
+    }
 
+    public static int height(TreeNode root) {
+        int numberOfLevel = -1;
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
 
+        while (true) {
+            int nodeCountAtLevel = queue.size();
+            if (nodeCountAtLevel == 0) {
+                return numberOfLevel;
+            }
+
+            while (nodeCountAtLevel > 0) {
+                final TreeNode element = queue.poll();
+                if (element.left != null) {
+                    queue.add(element.left);
+                }
+                if (element.right != null) {
+                    queue.add(element.right);
+                }
+                nodeCountAtLevel--;
+            }
+            numberOfLevel++;
+        }
     }
 }
 
