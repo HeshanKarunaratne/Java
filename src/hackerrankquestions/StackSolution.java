@@ -10,8 +10,8 @@ public class StackSolution {
     public static final String CLOSE = ")}]";
 
     public static void main(String[] args) {
-        String s = "({})";
-        stackCheck(s);
+        String s = "()[]{}";
+        System.out.println(stackCheck(s));
     }
 
     private static boolean stackCheck(String s) {

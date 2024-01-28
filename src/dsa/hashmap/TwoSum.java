@@ -1,4 +1,4 @@
-package hackerrankquestions;
+package dsa.hashmap;
 
 import java.util.Arrays;
 import java.util.HashMap;
