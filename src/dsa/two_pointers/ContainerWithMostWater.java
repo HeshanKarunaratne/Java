@@ -1,9 +1,9 @@
-package hackerrankquestions;
+package dsa.two_pointers;
 
 /**
  * @author Heshan Karunaratne
  */
-public class MaximumWater {
+public class ContainerWithMostWater {
     public static int maxArea(int[] height) {
         int maxArea = Integer.MIN_VALUE;
 
