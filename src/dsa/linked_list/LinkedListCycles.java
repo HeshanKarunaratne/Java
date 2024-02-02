@@ -1,9 +1,18 @@
-package hackerrankquestions;
+package dsa.linked_list;
 
 /**
  * @author Heshan Karunaratne
  */
 public class LinkedListCycles {
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
 
     public static boolean hasCycle(ListNode head) {
         ListNode slow = head;

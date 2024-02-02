@@ -1,4 +1,4 @@
-package hackerrankquestions;
+package dsa.binary_search;
 
 /**
  * @author Heshan Karunaratne
