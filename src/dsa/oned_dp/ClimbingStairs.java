@@ -1,4 +1,4 @@
-package hackerrankquestions;
+package dsa.oned_dp;
 
 /**
  * @author Heshan Karunaratne
