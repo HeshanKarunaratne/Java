@@ -50,7 +50,28 @@ public class FlattenBinaryTreeToLinkedList {
         root1.left = root2;
         root1.right = root3;
 
-        flatten(root1);
+//        flatten(root1);
+        flattenV2(root1);
         System.out.println(root1);
+    }
+
+    private static void flattenV2(TreeNode root) {
+
+        if (root == null) return;
+
+        while (root != null) {
+
+            if (root.left != null) {
+                TreeNode left = root.left;
+                TreeNode current = left;
+
+                while (current.right != null) current = current.right;
+
+                current.right = root.right;
+                root.left = null;
+                root.right = left;
+            }
+            root = root.right;
+        }
     }
 }
