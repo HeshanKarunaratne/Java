@@ -1,9 +1,9 @@
-package hackerrankquestions;
+package dsa.binary_search;
 
 /**
  * @author Heshan Karunaratne
  */
-public class FirstAndLastPosition {
+public class FindFirstAndLastPositionOfElementInSortedArray {
 
     public static int[] searchRange(int[] nums, int target) {
         int leftPosition = searchLeft(nums, target);

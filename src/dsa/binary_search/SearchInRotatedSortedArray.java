@@ -1,9 +1,9 @@
-package hackerrankquestions;
+package dsa.binary_search;
 
 /**
  * @author Heshan Karunaratne
  */
-public class RotatedSortedArray {
+public class SearchInRotatedSortedArray {
 
     public static void main(String[] args) {
         int target = 1;
@@ -17,11 +17,6 @@ public class RotatedSortedArray {
     }
 
     public static int modifiedBinarySearch(int[] nums, int target, int left, int right) {
-
-        /**
-         *  8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7
-         *  0                5                 11
-         */
 
         if (left > right) {
             return -1;
