@@ -25,7 +25,6 @@ public class MinimumNumberOfArrowsToBurstBalloons {
 
         for (int i = 1; i < n; i++) {
             if (points[i][0] <= preEndPoint && preEndPoint <= points[i][1]) {
-                continue;
             } else {
                 arrow++;
                 preEndPoint = points[i][1];

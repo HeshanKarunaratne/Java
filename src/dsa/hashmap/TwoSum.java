@@ -12,7 +12,7 @@ public class TwoSum {
     public static void main(String[] args) {
         int[] arr = {1, 4, 2, 7, 3};
         final int[] brr = twoSum(arr, 10);
-        Arrays.toString(brr);
+        System.out.println(Arrays.toString(brr));
     }
 
     public static int[] twoSum(int[] nums, int target) {
