@@ -1,7 +1,5 @@
 package dsa.arrays;
 
-import java.util.Arrays;
-
 /**
  * @author Heshan Karunaratne
  */
@@ -21,7 +19,6 @@ public class RemoveElement {
                 counter++;
             }
         }
-        System.out.println(Arrays.toString(nums));
         return counter;
     }
 }

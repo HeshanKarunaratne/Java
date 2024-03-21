@@ -5,7 +5,7 @@ package dsa.hashmap;
  */
 public class ValidAnagram {
     public static void main(String[] args) {
-        System.out.println(isAnagram("rat", "car"));
+        System.out.println(isAnagram("Aat", "car"));
     }
 
     public static boolean isAnagram(String s, String t) {
