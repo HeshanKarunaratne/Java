@@ -58,4 +58,5 @@ We need to iterate from backwards (because we need to find the highest H-index) 
 count += buckets[i];
 if (count >= i) return i;
 
+if it meets the criteria thats the h-index otherwise returns 0
  */
