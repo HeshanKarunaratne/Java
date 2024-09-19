@@ -2,6 +2,24 @@ package dsa.arrays;
 
 import java.util.Arrays;
 
+/*
+14. Longest Common Prefix
+
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+
+ */
+
 /**
  * @author Heshan Karunaratne
  */
@@ -22,9 +40,11 @@ public class LongestCommonPrefix {
     }
 
     public static void main(String[] args) {
-//        String[] arr = {"dog", "racecar", "car"};
         String[] arr = {"flower","flow","flight"};
-//        String[] arr = {"dog", "racecar", "car"};
         System.out.println(longestCommonPrefix(arr));
     }
 }
+
+/*
+Sort the array and check the characters of the first and the last words in the list. You can identify the common prefix of the words
+ */
