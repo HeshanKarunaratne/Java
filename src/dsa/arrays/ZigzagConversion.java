@@ -1,10 +1,40 @@
 package dsa.arrays;
 
+/*
+6. Zigzag Conversion
+
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+
+P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line: "PAHNAPLSIIGYIR"
+
+Write the code that will take a string and make this conversion given a number of rows:
+string convert(string s, int numRows);
+
+Example 1:
+Input: s = "PAYPALISHIRING", numRows = 3
+Output: "PAHNAPLSIIGYIR"
+
+Example 2:
+Input: s = "PAYPALISHIRING", numRows = 4
+Output: "PINALSIGYAHRPI"
+Explanation:
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+
+Example 3:
+Input: s = "A", numRows = 1
+Output: "A"
+ */
+
 /**
  * @author Heshan Karunaratne
  */
 public class ZigzagConversion {
-
 
     public static void main(String[] args) {
         String s = "PAYPALISHIRING";
@@ -40,3 +70,14 @@ public class ZigzagConversion {
         return result.toString();
     }
 }
+
+/*
+
+     P  A  Y  P  A  L  I  S  H  I  R  I  N  G
+row: 0  1  2  1  0  1  2  1  0  1  2  1  0  1
+dir: 1  1 -1 -1  1  1 -1 -1  1  1 -1 -1  1  1
+
+sb0: P   A   H   N
+sb1: A P L S I I G
+sb2: Y   I   R
+ */
