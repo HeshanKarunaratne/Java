@@ -3,38 +3,53 @@ package dsa.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+46. Permutations
+
+Given an array nums of distinct integers, return all the possible
+permutations
+. You can return the answer in any order.
+
+Example 1:
+Input: nums = [1,2,3]
+Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
+Example 2:
+Input: nums = [0,1]
+Output: [[0,1],[1,0]]
+
+Example 3:
+Input: nums = [1]
+Output: [[1]]
+ */
+
 /**
  * @author Heshan Karunaratne
  */
 public class Permutations {
-    public static List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> resultList = new ArrayList<>();
-        backTrack(resultList, new ArrayList<>(), nums);
-        return resultList;
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        System.out.println(permute(arr));
     }
 
-    private static void backTrack(List<List<Integer>> resultList, ArrayList<Integer> tempList, int[] nums) {
+    private static List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> results = new ArrayList<>();
+        backTrack(results, new ArrayList<>(), nums);
+        return results;
+    }
 
+    private static void backTrack(List<List<Integer>> results, List<Integer> tempList, int[] nums) {
         if (tempList.size() == nums.length) {
-            resultList.add(new ArrayList<>(tempList));
-            return;
+            results.add(new ArrayList<>(tempList));
         }
-
         for (int num : nums) {
             if (tempList.contains(num)) {
                 continue;
             }
-
             tempList.add(num);
-            backTrack(resultList, tempList, nums);
-
+            backTrack(results, tempList, nums);
             tempList.remove(tempList.size() - 1);
         }
-
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {1, 2};
-        System.out.println(permute(arr));
     }
 }
