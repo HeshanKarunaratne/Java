@@ -63,3 +63,10 @@ public class CombinationSum {
         }
     }
 }
+
+/*
+Base Case - if the target is == 0 then add it to the result
+
+Since the same value can be added over and over check whether if that value is not exceeding target value
+If its exceeding can move to next j in iteration
+ */

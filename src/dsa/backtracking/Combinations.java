@@ -56,4 +56,9 @@ public class Combinations {
 
 /*
 We are using a LinkedList so that we can remove from the end
+
+Base case - If the current size == k then add it to a list and append to the ans
+For loop uses below statements
+int i = start; i <= n && current.size() < k; i++
+since the size of the current is less than k, we can add more inside the for loop
  */
