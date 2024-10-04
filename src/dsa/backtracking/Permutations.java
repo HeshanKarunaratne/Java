@@ -53,3 +53,9 @@ public class Permutations {
         }
     }
 }
+
+/*
+Base Case: If the tempList size is equal to the nums.length
+
+inside a loop check If the tempList already contains the same value -> continue
+ */

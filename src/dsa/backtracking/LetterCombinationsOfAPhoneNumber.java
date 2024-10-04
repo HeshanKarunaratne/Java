@@ -59,4 +59,6 @@ public class LetterCombinationsOfAPhoneNumber {
 
 /*
 Base Case - length should equal to the length of the digits
+Add the correct mapping array
+extract the char at index and use it to get the correct string representation
  */
