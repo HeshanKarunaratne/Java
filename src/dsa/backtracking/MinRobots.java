@@ -111,3 +111,9 @@ public class MinRobots {
         dfs(floorPlan, visited, i - 1, j);
     }
 }
+
+/*
+When iterating through all the cells we need to make sure, that cell is not visited and dirty. If it passes then we can use a dfs on that cell
+
+Base Case: The cell should be in correct range, cell should be not visited and cell should be dirty else it should stop
+ */
