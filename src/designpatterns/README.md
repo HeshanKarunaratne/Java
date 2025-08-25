@@ -1,3 +1,8 @@
+Mainly there are 3 types of Design Patterns. They are,
+1. Creation Design Patterns
+2. Structural Design Patterns
+3. Behavioral Design Patterns
+
 Creation Design Patterns
 - Singleton Pattern
 - Factory Pattern
@@ -22,10 +27,7 @@ Singleton Design Pattern
 - Public method for returning instance
 
 Initialization Types
-- Eager 
-- Lazy
-- Thread safe Method
-- Thread safe Block
+- Eager: The object/value is created immediately when the class is loaded or the method is called, even if it’s never used later. This can waste memory/resources if the object is heavy and not always required.
 
 ~~~java
 package designpatterns.singleton;
@@ -55,6 +57,8 @@ class Test {
     }
 }
 ~~~
+
+- Lazy: The object/value is created only when it’s actually needed. Saves memory and CPU, especially useful when object creation is expensive and might not always be required.
 
 ~~~java
 package designpatterns.singleton;
@@ -88,6 +92,8 @@ class Test2 {
 }
 ~~~
 
+- Thread safe Method
+
 ~~~java
 package designpatterns.singleton;
 
@@ -119,6 +125,8 @@ class Test3 {
     }
 }
 ~~~
+
+- Thread safe Block
 
 ~~~java
 package designpatterns.singleton;
