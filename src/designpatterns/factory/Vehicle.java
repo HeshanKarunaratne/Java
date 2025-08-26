@@ -1,5 +1,7 @@
 package designpatterns.factory;
 
+import java.util.Objects;
+
 /**
  * @author Heshan Karunaratne
  */
@@ -38,10 +40,13 @@ class Bike extends Vehicle {
 }
 
 class VehicleFactory {
+    private VehicleFactory() {
+    }
+
     public static Vehicle getInstance(String type, int wheel) {
-        if (type == "car") {
+        if ("car".equals(type)) {
             return new Car(wheel);
-        } else if (type == "bike") {
+        } else if ("bike".equals(type)) {
             return new Bike(wheel);
         }
         return null;
