@@ -20,6 +20,7 @@ Structural Design Patterns
 
 Behavioral Design Patter
 - Observer Pattern
+- Mediator Pattern
 
 Singleton Design Pattern
 - Only one instance of the class should exist
@@ -317,7 +318,9 @@ class BuilderPatternTest {
 ~~~
 
 Prototype Pattern
-- Used when you want to avoid multiple Object creation of same instance, instead you copy the object to new object and then we can modify as per our need
+- Used when you want to avoid multiple Object creation of same instance, instead you copy the object to new object, and then we can modify as per our need
+- Needs to extend using the Cloneable interface
+- In SpringBoot you can use @Scope("prototype") which creates a new instance every time you request it
 
 ~~~java
 package designpatterns.prototype;
@@ -842,6 +845,7 @@ class FlyweightTest {
 Adapter Design Pattern
 
 - When objects offering same features, but has different interfaces.
+- Promotes re-usability & flexibility without changing existing code 
     eg: Charging adapter, USB to Ethernet adapter
     
 - Interface: WebDriver
