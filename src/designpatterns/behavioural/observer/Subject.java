@@ -19,7 +19,7 @@ class DeliveryData implements Subject {
     private String location;
 
     public DeliveryData() {
-        this.observers = new ArrayList<Observer>();
+        this.observers = new ArrayList<>();
     }
 
     @Override
