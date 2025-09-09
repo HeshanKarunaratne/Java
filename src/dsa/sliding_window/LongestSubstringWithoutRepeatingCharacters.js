@@ -18,7 +18,23 @@ const findLongestSubstringWithoutRepeatingCharactersBruteForce = (s) => {
 
 const findLongestSubstringWithoutRepeatingCharactersOptimized = (s) => {
     if (s.length <= 1) return s.length;
+    let maxLength = 0;
 
+    let windowStart = 0;
+    let windowEnd = 0;
+
+    const map = new Map();
+    for (windowEnd; windowEnd < s.length; windowEnd++) {
+        let rightChar = s[windowEnd];
+
+        if (map.has(rightChar) && map.get(rightChar) >= windowStart) {
+            windowStart = map.get(rightChar) + 1;
+        }
+
+        map.set(rightChar, windowEnd);
+        maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
+    }
+    return maxLength;
 }
 
 const start = performance.now();
